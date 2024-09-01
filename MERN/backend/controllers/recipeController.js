@@ -1,97 +1,47 @@
 const Recipe = require('../models/Recipe');
+const { validationResult } = require('express-validator');
 
 // Get all recipes
 exports.getAllRecipes = async (req, res) => {
   try {
     const recipes = await Recipe.find();
-    res.json({ recipes });
-  } catch (error) {
-    res.status(500).json({ message: 'Error fetching recipes', error });
+    res.json({ success: true, data: recipes });
+  } catch (err) {
+    res.status(500).json({ success: false, message: 'Server error', error: err.message });
   }
 };
 
-// Get a specific recipe
+// Get recipe by ID
 exports.getRecipeById = async (req, res) => {
-  const { id } = req.params;
-
   try {
-    const recipe = await Recipe.findById(id);
-    if (!recipe) return res.status(404).json({ message: 'Recipe not found' });
-
-    res.json({ recipe });
-  } catch (error) {
-    res.status(500).json({ message: 'Error fetching recipe', error });
+    const recipe = await Recipe.findById(req.params.id);
+    if (!recipe) {
+      return res.status(404).json({ success: false, message: 'Recipe not found' });
+    }
+    res.json({ success: true, data: recipe });
+  } catch (err) {
+    res.status(500).json({ success: false, message: 'Server error', error: err.message });
   }
 };
 
-// Add a new recipe
-exports.addRecipe = async (req, res) => {
-  const { recipename, description, servings, preptime, cooktime, totaltime, difficulty, type, cuisine, prepmethods, calories, steps, ingredients, imageurl } = req.body;
+// Search recipes by ingredients
+exports.searchRecipesByIngredients = async (req, res) => {
+  const { ingredients } = req.body;  // Assume ingredients are passed as an array in the request body
 
-  try {
-    const newRecipe = new Recipe({
-      recipename,
-      description,
-      servings,
-      preptime,
-      cooktime,
-      totaltime,
-      difficulty,
-      type,
-      cuisine,
-      prepmethods,
-      calories,
-      steps,
-      ingredients,
-      imageurl
-    });
-
-    await newRecipe.save();
-    res.status(201).json({ message: 'Recipe added successfully', recipe: newRecipe });
-  } catch (error) {
-    res.status(500).json({ message: 'Error adding recipe', error });
+  if (!ingredients || ingredients.length < 1 || ingredients.length > 10) {
+    return res.status(400).json({ success: false, message: 'Please provide between 1 and 10 ingredients' });
   }
-};
-
-// Update a recipe
-exports.updateRecipe = async (req, res) => {
-  const { id } = req.params;
-  const { recipename, description, servings, preptime, cooktime, totaltime, difficulty, type, cuisine, prepmethods, calories, steps, ingredients, imageurl } = req.body;
 
   try {
-    const updatedRecipe = await Recipe.findByIdAndUpdate(id, {
-      recipename,
-      description,
-      servings,
-      preptime,
-      cooktime,
-      totaltime,
-      difficulty,
-      type,
-      cuisine,
-      prepmethods,
-      calories,
-      steps,
-      ingredients,
-      imageurl
-    }, { new: true });
+    const recipes = await Recipe.find({ ingredients: { $all: ingredients } });
 
-    if (!updatedRecipe) return res.status(404).json({ message: 'Recipe not found' });
+    if (recipes.length === 0) {
+      return res.status(404).json({ success: false, message: 'No recipes found with the given ingredients' });
+    }
 
-    res.json({ message: 'Recipe updated successfully', recipe: updatedRecipe });
-  } catch (error) {
-    res.status(500).json({ message: 'Error updating recipe', error });
-  }
-};
-
-// Delete a recipe
-exports.deleteRecipe = async (req, res) => {
-  const { id } = req.params;
-
-  try {
-    await Recipe.findByIdAndDelete(id);
-    res.json({ message: 'Recipe deleted successfully' });
-  } catch (error) {
-    res.status(500).json({ message: 'Error deleting recipe', error });
+    const randomRecipe = recipes[Math.floor(Math.random() * recipes.length)];
+    res.json({ success: true, data: randomRecipe });
+  } catch (err) {
+    res.status(500).json({ success: false, message: 'Server error', error: err.message });
   }
 };

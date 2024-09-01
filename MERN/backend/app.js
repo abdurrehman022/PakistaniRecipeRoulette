@@ -1,7 +1,5 @@
 const express = require('express');
-const session = require('express-session');
 const mongoose = require('mongoose');
-const MongoStore = require('connect-mongo');
 require('dotenv').config();
 
 const app = express();
@@ -11,33 +9,26 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Connect to MongoDB
-mongoose.connect(process.env.MONGO_URI)
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.error('Error connecting to MongoDB:', err));
 
-// Session middleware
-app.use(session({
-  secret: process.env.SESSION_SECRET,
-  resave: false,
-  saveUninitialized: false,
-  store: MongoStore.create({ 
-    mongoUrl: process.env.MONGO_URI
-  }),
-  cookie: { secure: false } // Set to true if using HTTPS
-}));
-
-// Import and use routes
+// Import routes
 const userRoutes = require('./routes/userRoutes');
 const recipeRoutes = require('./routes/recipeRoutes');
 
-app.use('/api/users', userRoutes);
-app.use('/api/recipes', recipeRoutes);
+// Import JWT authentication middleware
+const { authenticateToken } = require('./middleware/authMiddleware');
+
+// Use routes
+app.use('/api/users', userRoutes);  // All user routes
+app.use('/api/recipes', recipeRoutes);  // All recipe routes
 
 // Example route (for testing)
-app.get('/', (req, res) => res.send('Server running on port ' + (process.env.PORT || 5003)));
+app.get('/', (req, res) => res.send('Server running on port ' + (process.env.PORT || 5000)));
 
 // Start server
-const PORT = process.env.PORT || 5003;
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });

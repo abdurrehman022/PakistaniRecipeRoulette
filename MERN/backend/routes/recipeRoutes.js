@@ -1,20 +1,31 @@
 const express = require('express');
+const { 
+  getAllRecipes, 
+  getRecipeById, 
+  searchRecipesByIngredients 
+} = require('../controllers/recipeController');
+
 const router = express.Router();
-const recipeController = require('../controllers/recipeController');
 
-// Get all recipes
-router.get('/', recipeController.getAllRecipes);
+/**
+ * @route   GET /api/recipes
+ * @desc    Get all recipes
+ * @access  Public
+ */
+router.get('/', getAllRecipes);
 
-// Get a specific recipe
-router.get('/:id', recipeController.getRecipeById);
+/**
+ * @route   GET /api/recipes/:id
+ * @desc    Get a recipe by ID
+ * @access  Public
+ */
+router.get('/:id', getRecipeById);
 
-// Add a new recipe
-router.post('/', recipeController.addRecipe);
-
-// Update a recipe
-router.put('/:id', recipeController.updateRecipe);
-
-// Delete a recipe
-router.delete('/:id', recipeController.deleteRecipe);
+/**
+ * @route   POST /api/recipes/search
+ * @desc    Search for recipes based on provided ingredients
+ * @access  Public
+ */
+router.post('/search', searchRecipesByIngredients);
 
 module.exports = router;
