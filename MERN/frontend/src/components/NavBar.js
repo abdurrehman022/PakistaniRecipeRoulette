@@ -14,7 +14,9 @@ const NavBar = () => {
         <Link to="/" className={location.pathname === '/' ? 'active' : ''}>Home</Link>
         <Link to="/roulette" className={location.pathname === '/roulette' ? 'active' : ''}>Roulette</Link>
         <Link to="/recipes" className={location.pathname === '/recipes' ? 'active' : ''}>Recipes</Link>
+        <Link to="/favorites" className={location.pathname === '/favorites' ? 'active' : ''}>Favorites</Link>
         <Link to="/login" className={location.pathname === '/login' ? 'active' : ''}>Login</Link>
+        <Link to="/register" className={location.pathname === '/register' ? 'active' : ''}>Register</Link>
       </div>
     </nav>
   );
