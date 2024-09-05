@@ -5,8 +5,8 @@ require('dotenv').config();
 
 const app = express();
 
-// Use CORS middleware
-app.use(cors());
+const cors = require('cors');
+app.use(cors({ origin: 'https://pakistani-recipe-roulette.vercel.app' }));
 
 // Middleware for parsing JSON and URL-encoded data
 app.use(express.json());
