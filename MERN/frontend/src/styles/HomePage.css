@@ -1,0 +1,192 @@
+/* General styles for the home-container */
+.home-container-unique {
+    color: #333;
+    margin: 0;
+    padding: 0;
+    background-color: #fff; /* Ensure entire page background is white */
+}
+
+/* Intro Section */
+.intro-section-unique {
+    background-image: url('../assets/homeintro.jpg'); /* Background image */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #fff; /* Ensure text color contrasts with the background */
+    padding: 100px 20px; /* Increased padding for more spacing */
+    text-align: center;
+}
+
+.intro-section-unique .content-container-unique {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.intro-section-unique h1 {
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: #fff; /* Ensure title text is white for contrast */
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add subtle shadow for readability */
+}
+
+.intro-section-unique p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: #f2f2f2; /* Softer white for paragraph text */
+    line-height: 1.8;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Text shadow for readability */
+}
+
+.cta-button-unique {
+    background-color: rgb(252, 115, 4);
+    color: #fff;
+    padding: 1rem 2rem; /* Slightly larger button size */
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 0.5rem; /* Spacing between buttons */
+}
+
+.cta-button-unique:hover {
+    background-color: rgb(252, 83, 4);
+}
+
+/* Recipes Container */
+.recipes-container-unique {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+/* Top Recipes Section */
+.top-recipes-section-unique {
+    background-color: #ffffff;
+    padding: 40px 20px;
+}
+
+.top-recipes-section-unique .content-container-unique {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.top-recipes-section-unique h2 {
+    font-size: 2.75rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: #333;
+}
+
+/* Random Recipes Section */
+.random-recipes-section-unique {
+    background-color: #fff;
+    padding: 40px 20px;
+}
+
+.random-recipes-section-unique .content-container-unique {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.random-recipes-section-unique h2 {
+    font-size: 2.75rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: #333;
+}
+
+/* About Us Section */
+.about-section-unique {
+    background-image: url('../assets/backgroundsectionhome.jpg'); /* Background image */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding: 80px 20px;
+    position: relative;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px; /* Ensure minimum height */
+}
+
+.about-section-unique .content-box-unique {
+    background-color: rgba(255, 255, 255, 1);
+    color: #333;
+    padding: 50px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    max-width: 800px;
+    text-align: center;
+}
+
+.about-section-unique h2 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    color: #222;
+}
+
+.about-section-unique p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+.about-section-unique .cta-button-unique {
+    background-color: #007bff;
+    color: white;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 30px;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.about-section-unique .cta-button-unique:hover {
+    background-color: #0056b3;
+}
+
+/* Flex container for section headers and buttons */
+.section-header-unique {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .intro-section-unique h1,
+    .top-recipes-section-unique h2,
+    .random-recipes-section-unique h2,
+    .about-section-unique h2 {
+        font-size: 2rem;
+    }
+
+    .cta-button-unique {
+        font-size: 0.875rem;
+        padding: 0.5rem 1rem;
+    }
+
+    .about-section-unique h2 {
+        font-size: 2.5rem;
+    }
+
+    .about-section-unique p {
+        font-size: 1rem;
+    }
+
+    .about-section-unique .content-box-unique {
+        padding: 20px;
+        max-width: 90%;
+    }
+
+    .content-container-unique {
+        width: 90%;
+    }
+}
