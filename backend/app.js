@@ -5,7 +5,9 @@ require('dotenv').config();
 
 const app = express();
 
-app.use(cors({ origin: 'http://localhost:5173' }));
+// Use CORS with the origin from the environment variable
+app.use(cors({ origin: process.env.CORS_ORIGIN }));
+
 
 // Middleware for parsing JSON and URL-encoded data
 app.use(express.json());
