@@ -5,9 +5,6 @@ require('dotenv').config();
 
 const app = express();
 
-// Set the view engine to ejs
-app.set('view engine', 'ejs');
-
 // Use CORS with the origin from the environment variable
 app.use(cors({ origin: process.env.CORS_ORIGIN }));
 
@@ -33,9 +30,7 @@ app.use('/api/users', userRoutes);  // All user routes
 app.use('/api/recipes', recipeRoutes);  // All recipe routes
 
 // Example route (for testing)
-app.get('/', (req, res) => {
-  res.render('index', { frontendUrl: 'https://pakistani-recipe-roulette.vercel.app/' });
-});
+app.get('/', (req, res) => res.send('Express API Running'));
 
 // Start server
 const PORT = process.env.PORT || 5000;
