@@ -1,0 +1,159 @@
+/* Main container for the recipe card */
+.recipe-card {
+  width: 180px; /* Set the width of the card */
+  height: 290px; /* Set the height of the card */
+  background-color: white; /* Background color of the card */
+  border-radius: 12px; /* Rounded corners */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Light modern shadow for depth */
+  overflow: hidden; /* Hide overflow content */
+  transition: transform 0.2s; /* Smooth transition for hover effect */
+  margin: 16px; /* Margin around the card */
+  position: relative; /* Position relative for absolute positioning of child elements */
+  font-family: 'Montserrat', sans-serif; /* Font family for the card */
+  border: none; /* Remove any border */
+  outline: none; /* Remove any outline */
+  border: 1px solid #ddd; /* Added from TestRecipeFetch.css */
+  border-radius: 8px; /* Added from TestRecipeFetch.css */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Added from TestRecipeFetch.css */
+  padding: 16px; /* Added from TestRecipeFetch.css */
+  width: 300px; /* Fixed width for uniformity */
+}
+
+/* Hover effect for the recipe card */
+.recipe-card:hover {
+  transform: translateY(-5px); /* Slight lift on hover */
+}
+
+/* Styling for the recipe image */
+.recipe-image {
+  width: 100%; /* Full width */
+  height: 200px; /* Fixed height for uniformity */
+  object-fit: cover; /* Ensures the image covers the placeholder */
+  border-top-left-radius: 12px; /* Rounded top-left corner */
+  border-top-right-radius: 12px; /* Rounded top-right corner */
+  position: relative; /* Position relative for overlay */
+  border-radius: 8px; /* Added from TestRecipeFetch.css */
+  margin-bottom: 8px; /* Added from TestRecipeFetch.css */
+}
+
+/* Overlay with recipe details */
+.recipe-details {
+  position: absolute; /* Position absolutely within the card */
+  top: 175px; /* Positioned over the image */
+  left: 0;
+  right: 0;
+  display: flex; /* Flexbox for layout */
+  justify-content: space-around; /* Space around items */
+  background: rgba(255, 255, 255, 0.8); /* Transparent white background */
+  padding: 15px; /* Padding inside the overlay */
+  font-size: 12px; /* Font size for details */
+  color: #333; /* Text color */
+  font-weight: 500; /* Font weight */
+}
+
+/* Styling for individual info items */
+.info-item {
+  display: flex; /* Flexbox for layout */
+  align-items: center; /* Center items vertically */
+  color: green; /* Text color */
+}
+
+/* Styling for icons within info items */
+.icon {
+  margin-right: 5px; /* Margin to the right of the icon */
+  color: green; /* Icon color */
+}
+
+/* Container for the recipe content */
+.recipe-content {
+  position: relative; /* Position relative for layout */
+  padding: 4px 8px; /* Padding inside the content */
+  text-align: left; /* Left-align text */
+}
+
+/* Styling for the recipe title */
+.recipe-title {
+  font-size: 24px !important; /* Font size with !important to override other styles */
+  text-align: left !important;
+  font-weight: 500; /* Font weight */
+  margin: 0px 0; /* Margin to decrease vertical spacing */
+  color: #000000; /* Text color */
+  white-space: nowrap; /* Prevent text wrapping */
+  overflow: hidden; /* Hide overflow text */
+  text-overflow: ellipsis; /* Ellipsis for long titles */
+  font-weight: bold; /* Added from TestRecipeFetch.css */
+  margin-bottom: 8px; /* Added from TestRecipeFetch.css */
+}
+
+/* Styling for the view recipe link */
+.view-recipe {
+  font-size: 14px !important; /* Font size with !important to override other styles */
+  color: rgb(4, 111, 252); /* Text color */
+  text-decoration: none; /* Remove underline */
+  font-weight: 600; /* Font weight */
+  transition: color 0.2s; /* Smooth transition for color change */
+}
+
+/* Hover effect for the view recipe link */
+.view-recipe:hover {
+  color: rgb(252, 83, 4); /* Change color on hover */
+}
+
+/* Container for the recipe actions */
+.recipe-actions {
+  display: flex; /* Flexbox for layout */
+  justify-content: space-between; /* Space between items */
+  align-items: center; /* Center items vertically */
+  margin-top: 4px; /* Reduced margin for better spacing */
+  position: relative; /* Position relative for absolute positioning of heart icon */
+}
+
+/* Styling for the heart icon */
+.heart-icon {
+  color: rgb(19, 19, 19); /* Icon color */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: color 0.2s; /* Smooth transition for color change */
+  font-size: 32px; /* Adjusted font size */
+  position: absolute; /* Position absolute for overlay */
+  top: 22px; /* Position from the top */
+  right: 22px; /* Position from the right */
+  border-radius: 50%; /* Rounded background */
+  padding: 4px; /* Padding for the icon */
+}
+
+.heart-icon:hover {
+  color: #ff0000; /* Change color on hover */
+  transition: color 0.2s, font-size 0.2s; /* Smooth transition for color and font-size change */
+  font-size: 26px; /* Change font-size on hover */
+}
+
+/* Styling for the filled heart icon */
+.heart-icon.filled {
+  color: rgb(255, 0, 0); /* Filled heart color */
+  transition: color 0.2s, font-size 0.2s; /* Smooth transition for color and font-size change */
+}
+
+/* Container for the recipe content */
+.recipe-content {
+  position: relative; /* Position relative for layout */
+  padding: 4px 8px; /* Reduced padding inside the content */
+}
+
+.recipe-description {
+  font-size: 16px; /* Added from TestRecipeFetch.css */
+  margin-bottom: 8px; /* Added from TestRecipeFetch.css */
+}
+
+.recipe-card p {
+  margin: 4px 0; /* Added from TestRecipeFetch.css */
+}
+
+.recipe-card h3 {
+  margin-top: 16px; /* Added from TestRecipeFetch.css */
+  font-size: 20px; /* Added from TestRecipeFetch.css */
+}
+
+.recipe-card ul, .recipe-card ol {
+  margin: 8px 0; /* Added from TestRecipeFetch.css */
+  padding-left: 20px; /* Added from TestRecipeFetch.css */
+}

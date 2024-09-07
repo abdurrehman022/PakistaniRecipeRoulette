@@ -1,0 +1,138 @@
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url('../assets/login-background.jpg'); /* Replace with actual path to background image */
+  background-size: cover;
+  background-position: center;
+}
+
+.auth-box {
+  background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  transition: opacity 0.5s ease-in-out, border-color 0.5s ease-in-out;
+}
+
+.toggle-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.toggle-button {
+  background: none;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: color 0.3s, border-bottom 0.3s;
+}
+
+.toggle-button.active {
+  color: #333;
+  border-bottom: 2px solid #333;
+}
+
+.toggle-button:not(.active) {
+  color: #aaa;
+}
+
+.auth-box h2 {
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  color: #333;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #555;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.cta-button {
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 1rem;
+}
+
+.cta-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.cta-button:hover:not(:disabled) {
+  background-color: rgb(252, 83, 4);
+}
+
+.auth-instructions {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.auth-instructions .toggle-link {
+  color: rgb(252, 83, 4);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.auth-instructions .toggle-link2 {
+  color: rgb(4, 111, 252);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.auth-instructions .toggle-link:hover {
+  text-decoration: underline;
+}
+
+/* Theme for login */
+.login-theme {
+  border: 2px solid rgb(4, 111, 252);
+}
+
+.login-theme .cta-button {
+  background-color: rgb(4, 111, 252);
+}
+
+/* Theme for register */
+.register-theme {
+  border: 2px solid rgb(252, 83, 4);
+}
+
+.register-theme .cta-button {
+  background-color: rgb(252, 83, 4);
+}
+
+/* Add fade-in and fade-out animations */
+.auth-form {
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.auth-form.fade-out {
+  opacity: 0;
+}
