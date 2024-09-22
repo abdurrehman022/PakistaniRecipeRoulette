@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
-
 body, h1, h2, h3, h4, h5, h6, p, a, button, input, textarea ul ol div {
   font-family: 'Montserrat', sans-serif;
+  transition: all 0.3s ease-in-out; /* Smooth transitions */
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  body, h1, h2, h3, h4, h5, h6, p, a, button, input, textarea ul ol div {
+    font-size: 0.875rem;
+  }
 }

@@ -10,22 +10,26 @@
   display: inline-block;
   margin: 1em auto;
 }
-
 .roulette-button:hover {
   transform: translateY(-3px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
   background-color: rgb(252, 83, 4); /* Darker orange when hovered */
 }
-
 .roulette-button:active {
   transform: scale(0.98);
 }
-
 .roulette-button.spin {
   animation: spin 1s ease-in-out;
 }
-
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .roulette-button {
+    font-size: 1rem;
+    padding: 8px 16px;
+  }
 }

@@ -164,6 +164,7 @@
     .recipe-favorite-button-unique {
         font-size: 0.875rem;
         padding: 0.5rem 1rem;
+        width: 100%;
     }
 
     .recipe-info-unique {

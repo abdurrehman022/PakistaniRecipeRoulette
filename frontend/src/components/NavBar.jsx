@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 import '../styles/NavBar.css';
+import logo from '/src/assets/pakistanireciperoulette.png'; // Import the logo
 
 const NavBar = () => {
   const { authToken, user, logout } = useContext(AuthContext);
@@ -10,6 +11,7 @@ const NavBar = () => {
     <nav className="navbar">
       <div className="navbar-container">
         <div className="navbar-logo">
+          <img src={logo} alt="Pakistani Recipe Roulette Logo" className="navbar-logo-image" /> {/* Add the logo image */}
           <span>Pakistani Recipe Roulette</span>
         </div>
         <div className="navbar-links-container">

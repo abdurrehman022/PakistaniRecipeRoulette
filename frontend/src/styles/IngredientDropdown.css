@@ -49,3 +49,10 @@
   background-color: #3498db; /* Blue background for selected option */
   color: white; /* White text for selected option */
 }
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .ingredient-dropdown {
+    font-size: 0.875rem;
+  }
+}

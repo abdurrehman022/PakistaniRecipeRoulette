@@ -120,3 +120,18 @@
   color: #555;
   line-height: 1.6;
 }
+
+.try-again-section p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .try-again-section p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+}

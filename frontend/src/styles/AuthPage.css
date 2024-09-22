@@ -132,7 +132,14 @@
   opacity: 1;
   transition: opacity 0.5s ease-in-out;
 }
-
 .auth-form.fade-out {
   opacity: 0;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .auth-form {
+    padding: 1rem;
+    font-size: 1rem;
+  }
 }
